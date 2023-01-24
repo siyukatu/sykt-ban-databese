@@ -1,0 +1,6 @@
+name: siyukatu_ban_database
+version: '${project.version}'
+main: com.siyukatu.bans.com.siyukatu.bans.Com.siyukatu.bans
+api-version: 1.19
+authors: [ siyukatu ]
+description: しゆかつサーバーのBAN情報を使用してあなたのサーバーに荒らしが参加するのを防ぎます。
