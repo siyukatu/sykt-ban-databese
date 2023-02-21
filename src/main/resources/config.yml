@@ -1,0 +1,4 @@
+api_key: ""
+req_delay: 20
+whitelist:
+  - ""
