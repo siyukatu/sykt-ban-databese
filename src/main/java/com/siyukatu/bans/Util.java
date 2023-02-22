@@ -10,6 +10,8 @@ import java.util.Objects;
 
 public class Util {
 
+    private Util() { }
+
     public static void copyFile(Path path, InputStream in) {
         try {
             if (Objects.equals(Files.readAllLines(path), Collections.EMPTY_LIST)) {
