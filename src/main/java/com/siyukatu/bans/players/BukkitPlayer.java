@@ -1,6 +1,6 @@
 package com.siyukatu.bans.players;
 
-import org.bukkit.Bukkit;
+import com.siyukatu.bans.BukkitBans;
 import org.bukkit.entity.Player;
 
 import java.util.UUID;
@@ -28,7 +28,7 @@ public class BukkitPlayer implements BansPlayer {
     }
 
     public static BansPlayer getPlayer(UUID uuid) {
-        Player p = Bukkit.getPlayer(uuid);
+        Player p = BukkitBans.getInstance().getServer().getPlayer(uuid);
         return new BukkitPlayer(p);
 
     }

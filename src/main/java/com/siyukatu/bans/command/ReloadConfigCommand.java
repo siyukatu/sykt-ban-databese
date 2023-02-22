@@ -1,6 +1,6 @@
 package com.siyukatu.bans.command;
 
-import com.siyukatu.bans.Bans;
+import com.siyukatu.bans.*;
 import com.siyukatu.bans.configuration.DefaultConfig;
 import com.siyukatu.bans.players.BansPlayer;
 
@@ -13,12 +13,24 @@ public class ReloadConfigCommand implements ICommand {
     }
 
     @Override
+    public String getDescription() {
+        return "/ban-database reload - リロードをします。";
+    }
+
+    @Override
     public boolean execute(BansPlayer player, List<String> args) {
         if (player.hasPermission("com.siyukatu.bans.reload")) {
-            // コンフィグの読み込み
-            DefaultConfig config = Bans.getConfig();
+            DefaultConfig config = null;
+            if (Bans.mode == ServerMode.Bukkit) {
+                config = BukkitBans.getInstance().getDefaultConfig();
+            }else if (Bans.mode == ServerMode.Bungee) {
+                config = BungeeBans.getInstance().getDefaultConfig();
+
+            }
+            assert config != null;
             config.load();
-            player.sendMessage("[しゆかつBANデータベース]\nロードが完了しました。");
+            new BanCheckRunner(config.getString("api_key"), config.getString("debug_level").equals("debug"));
+            player.sendMessage("[しゆかつBANデータベース] ロードが完了しました。");
             return true;
         }
 

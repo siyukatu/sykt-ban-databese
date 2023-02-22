@@ -22,12 +22,17 @@ public class UserInfoCommand implements ICommand {
     }
 
     @Override
+    public String getDescription() {
+        return "/ban-database info <user_name> - データベースに保存されているものからユーザー名に指定されたユーザーがBanされている確認します。";
+    }
+
+    @Override
     public boolean execute(BansPlayer player, List<String> args) {
 
         String uuid;
         try {
-            HttpClient httpClient = HttpClient.newBuilder().version(HttpClient.Version.HTTP_2).connectTimeout(Duration.ofSeconds(5)).build();
-            HttpRequest request = HttpRequest.newBuilder().uri(URI.create("https://api.mojang.com/users/profiles/minecraft/"+args.get(1))).GET().timeout(Duration.ofSeconds(5)).build();
+            HttpClient httpClient = HttpClient.newBuilder().version(HttpClient.Version.HTTP_2).connectTimeout(Duration.ofSeconds(5L)).build();
+            HttpRequest request = HttpRequest.newBuilder().uri(URI.create("https://api.mojang.com/users/profiles/minecraft/"+args.get(0))).GET().timeout(Duration.ofSeconds(5L)).build();
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
             JSONObject UUIDObject = (JSONObject) JSONValue.parseWithException(response.body());
             uuid = UUIDObject.get("id").toString();
@@ -37,8 +42,13 @@ public class UserInfoCommand implements ICommand {
 
         String content = Bans.database.get(uuid);
         String banned = "このプレイヤーはBanされていま" + (content == null ? "せん" : "す") + "。";
-        String[] ban_info = content.split(",",2);
-        player.sendMessage("[しゆかつBANデータベース]\n" + banned + "\n" + ban_info[1] + "\n処罰情報: https://p.sykt.jp/" + ban_info[0]);
+        String[] ban_info;
+        if (content != null) {
+            ban_info = content.split(",", 2);
+        }else {
+            ban_info = new String[]{"No content", "No content"};
+        }
+        player.sendMessage("[しゆかつBANデータベース] " + banned + "\n" + ban_info[1] + "\n処罰情報: https://p.sykt.jp/" + ban_info[0]);
         return true;
 
     }

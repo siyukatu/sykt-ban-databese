@@ -8,6 +8,8 @@ public interface ICommand {
 
     String getName();
 
+    String getDescription();
+
     boolean execute(BansPlayer player, List<String> args);
 
 }

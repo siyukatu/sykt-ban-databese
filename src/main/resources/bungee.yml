@@ -1,6 +1,6 @@
 name: BansBungee
 version: '${project.version}'
-main: com.siyukatu.bans.BansBungee
+main: com.siyukatu.bans.BungeeBans
 authors: [ siyukatu, night_fox_ ]
 description: しゆかつサーバーのBAN情報を使用してあなたのサーバーに荒らしが参加するのを防ぎます。
 

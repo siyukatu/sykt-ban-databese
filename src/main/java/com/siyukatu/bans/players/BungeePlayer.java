@@ -1,6 +1,6 @@
 package com.siyukatu.bans.players;
 
-import com.siyukatu.bans.BansBungee;
+import com.siyukatu.bans.BungeeBans;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 
 import java.util.UUID;
@@ -14,6 +14,7 @@ public class BungeePlayer implements BansPlayer {
     }
 
     @Override
+    @Deprecated
     public void sendMessage(String msg) {
         player.sendMessage(msg);
 
@@ -26,11 +27,12 @@ public class BungeePlayer implements BansPlayer {
 
     @Override
     public void kickPlayer(String msg) {
+        throw new IllegalArgumentException();
 
     }
 
     public static BansPlayer getPlayer(UUID uuid) {
-        ProxiedPlayer p = BansBungee.getInstance().getProxy().getPlayer(uuid);
+        ProxiedPlayer p = BungeeBans.getInstance().getProxy().getPlayer(uuid);
         return new BungeePlayer(p);
 
     }
