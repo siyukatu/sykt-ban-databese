@@ -3,7 +3,7 @@ package com.siyukatu.bans.players;
 import com.siyukatu.bans.BungeeBans;
 import net.md_5.bungee.api.CommandSender;
 
-public class BungeeConsole implements BansPlayer {
+public class BungeeConsole implements BansObject {
     CommandSender sender;
 
     private BungeeConsole() {
@@ -22,13 +22,7 @@ public class BungeeConsole implements BansPlayer {
         return sender.hasPermission(permission);
     }
 
-    @Override
-    public void kickPlayer(String msg) {
-        throw new IllegalArgumentException();
-
-    }
-
-    static BansPlayer getConsole() {
+    static BansObject getConsole() {
         return new BungeeConsole();
 
     }

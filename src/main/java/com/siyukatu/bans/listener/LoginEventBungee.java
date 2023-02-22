@@ -1,8 +1,8 @@
 package com.siyukatu.bans.listener;
 
 import com.siyukatu.bans.Bans;
-import net.md_5.bungee.api.connection.PendingConnection;
-import net.md_5.bungee.api.event.PreLoginEvent;
+import net.md_5.bungee.api.connection.ProxiedPlayer;
+import net.md_5.bungee.api.event.PostLoginEvent;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
 
@@ -16,15 +16,16 @@ public class LoginEventBungee implements Listener {
     }
 
     @EventHandler
-    public void ban(PreLoginEvent e) {
-        PendingConnection con = e.getConnection();
+    public void ban(PostLoginEvent e) {
+        ProxiedPlayer p = e.getPlayer();
 
-        if (!uuids.contains(con.toString())) {
+        if (!uuids.contains(p.getUniqueId().toString())
+                && !p.hasPermission("com.siyukatu.bans.ban")) {
 
-            String content = Bans.database.get(con.getUniqueId().toString());
+            String content = Bans.database.get(p.getUniqueId().toString());
 
             String[] ban_info = content.split(",", 2);
-            con.disconnect("[しゆかつBANデータベース]\nあなたはBANされています\n理由: " + ban_info[1] + "\n処罰情報: https://p.sykt.jp/" + ban_info[0]);
+            p.disconnect("[しゆかつBANデータベース]\nあなたはBANされています\n理由: " + ban_info[1] + "\n処罰情報: https://p.sykt.jp/" + ban_info[0]);
 
 
         }

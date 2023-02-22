@@ -3,7 +3,7 @@ package com.siyukatu.bans.players;
 import com.siyukatu.bans.BukkitBans;
 import org.bukkit.command.ConsoleCommandSender;
 
-public class BukkitConsole implements BansPlayer {
+public class BukkitConsole implements BansObject {
     ConsoleCommandSender sender;
 
     private BukkitConsole() {
@@ -21,12 +21,7 @@ public class BukkitConsole implements BansPlayer {
         return sender.hasPermission(permission);
     }
 
-    @Override
-    public void kickPlayer(String msg) {
-        throw new IllegalArgumentException();
-    }
-
-    static BansPlayer getConsole() {
+    static BansObject getConsole() {
         return new BukkitConsole();
 
     }

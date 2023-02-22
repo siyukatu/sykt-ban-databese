@@ -7,15 +7,18 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
+import java.util.List;
 import java.util.UUID;
 
 public class BanCheckRunner implements Runnable {
     String api_key;
     boolean debug_level;
+    List<String> uuids;
 
-    public BanCheckRunner(String api_key, boolean debug_level) {
+    public BanCheckRunner(String api_key, boolean debug_level, List<String> uuids) {
         this.api_key = api_key;
         this.debug_level = debug_level;
+        this.uuids = uuids;
 
     }
 
@@ -63,8 +66,9 @@ public class BanCheckRunner implements Runnable {
                 String[] ban_info = content.split(",", 2);
                 BansPlayer p = BansPlayer.getPlayer(UUID.fromString(uuid));
                 assert p != null;
-                if (!p.hasPermission("com.siyukatu.bans.ban")) {
-                    p.kickPlayer("[しゆかつBANデータベース]\nあなたはBANされています\n理由: " + ban_info[1] + "\n処罰情報: https://p.sykt.jp/" + ban_info[0]);
+                if (!uuids.contains(p.getUniqueId().toString())
+                        && !p.hasPermission("com.siyukatu.bans.ban")) {
+                    p.kick("[しゆかつBANデータベース]\nあなたはBANされています\n理由: " + ban_info[1] + "\n処罰情報: https://p.sykt.jp/" + ban_info[0]);
                 }
 
             }

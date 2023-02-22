@@ -1,6 +1,6 @@
 package com.siyukatu.bans.command;
 
-import com.siyukatu.bans.players.BansPlayer;
+import com.siyukatu.bans.players.BansObject;
 
 import java.util.List;
 
@@ -10,6 +10,6 @@ public interface ICommand {
 
     String getDescription();
 
-    boolean execute(BansPlayer player, List<String> args);
+    boolean execute(BansObject player, List<String> args);
 
 }

@@ -3,6 +3,7 @@ package com.siyukatu.bans;
 import com.siyukatu.bans.command.*;
 import com.siyukatu.bans.configuration.DefaultConfig;
 import com.siyukatu.bans.listener.LoginEventBungee;
+import com.siyukatu.bans.players.BansObject;
 import com.siyukatu.bans.players.BansPlayer;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.CommandSender;
@@ -50,11 +51,11 @@ public final class BungeeBans extends Plugin {
         getProxy().getPluginManager().registerCommand(this, new Command("ban-database") {
             @Override
             public void execute(CommandSender sender, String[] args) {
-                BansPlayer player;
+                BansObject player;
                 if (sender instanceof ProxiedPlayer) {
                     player = BansPlayer.getPlayer(((ProxiedPlayer) sender).getUniqueId());
                 }else {
-                   player = BansPlayer.getConsole();
+                   player = BansObject.getConsole();
 
                 }
 

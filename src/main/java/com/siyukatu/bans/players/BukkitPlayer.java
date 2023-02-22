@@ -23,7 +23,12 @@ public class BukkitPlayer implements BansPlayer {
     }
 
     @Override
-    public void kickPlayer(String msg) {
+    public UUID getUniqueId() {
+        return player.getUniqueId();
+    }
+
+    @Override
+    public void kick(String msg) {
         player.kickPlayer(msg);
     }
 

@@ -26,7 +26,13 @@ public class Bans {
 
         // スケジューラーの設定
         ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
-        executorService.scheduleAtFixedRate(new BanCheckRunner(config.getString("api_key"), config.getString("debug_level").equals("debug")), 0, config.getInt("req_delay"), TimeUnit.SECONDS);
+        executorService.scheduleAtFixedRate(
+                new BanCheckRunner(config.getString("api_key")
+                        , config.getString("debug_level").equals("debug")
+                        , config.getListString("whitelist"))
+                , 0
+                , config.getInt("req_delay")
+                , TimeUnit.SECONDS);
 
         // mapの初期化
         database = new HashMap<>();

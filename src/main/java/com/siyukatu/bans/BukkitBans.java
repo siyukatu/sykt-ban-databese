@@ -6,6 +6,7 @@ import com.siyukatu.bans.command.ReloadConfigCommand;
 import com.siyukatu.bans.command.UserInfoCommand;
 import com.siyukatu.bans.configuration.DefaultConfig;
 import com.siyukatu.bans.listener.LoginEventBukkit;
+import com.siyukatu.bans.players.BansObject;
 import com.siyukatu.bans.players.BansPlayer;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -42,11 +43,11 @@ public final class BukkitBans extends JavaPlugin  {
         );
 
         this.getCommand("ban-database").setExecutor((sender, command, label, args) -> {
-            BansPlayer player;
+            BansObject player;
             if (sender instanceof Player) {
                 player = BansPlayer.getPlayer(((Player) sender).getUniqueId());
             } else {
-                player = BansPlayer.getConsole();
+                player = BansObject.getConsole();
 
             }
 

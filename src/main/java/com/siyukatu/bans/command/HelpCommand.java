@@ -1,6 +1,6 @@
 package com.siyukatu.bans.command;
 
-import com.siyukatu.bans.players.BansPlayer;
+import com.siyukatu.bans.players.BansObject;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public class HelpCommand implements ICommand {
     }
 
     @Override
-    public boolean execute(BansPlayer player, List<String> args) {
+    public boolean execute(BansObject player, List<String> args) {
         for (String description:CommandManager.getDescriptions()) {
             player.sendMessage(description);
 

@@ -1,6 +1,6 @@
 package com.siyukatu.bans.command;
 
-import com.siyukatu.bans.players.BansPlayer;
+import com.siyukatu.bans.players.BansObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +36,7 @@ public final class CommandManager {
 
     }
 
-    public boolean execute(BansPlayer player, String name, List<String> args) {
+    public boolean execute(BansObject player, String name, List<String> args) {
         if (name == null) {
             helpCommand.execute(player, args);
             return true;

@@ -26,7 +26,12 @@ public class BungeePlayer implements BansPlayer {
     }
 
     @Override
-    public void kickPlayer(String msg) {
+    public UUID getUniqueId() {
+        return player.getUniqueId();
+    }
+
+    @Override
+    public void kick(String msg) {
         throw new IllegalArgumentException();
 
     }
