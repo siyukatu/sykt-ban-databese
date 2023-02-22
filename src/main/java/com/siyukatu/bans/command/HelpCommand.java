@@ -12,7 +12,7 @@ public class HelpCommand implements ICommand {
 
     @Override
     public String getDescription() {
-        return "/ban-database help - get helps.";
+        return "/ban-database help - ヘルプコマンドです。";
     }
 
     @Override
