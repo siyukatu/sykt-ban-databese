@@ -29,10 +29,7 @@ public final class CommandManager {
     }
 
     public void AllUnRegister() {
-        for (ICommand cmd:commands) {
-            unRegister(cmd);
-
-        }
+        commands.clear();
 
     }
 
