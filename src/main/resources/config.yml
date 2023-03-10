@@ -1,0 +1,5 @@
+api_key: ""
+req_delay: 20
+whitelist:
+  - ""
+debug_level: "info"

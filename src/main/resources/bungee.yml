@@ -1,0 +1,9 @@
+name: BansBungee
+version: '${project.version}'
+main: com.siyukatu.bans.BungeeBans
+author: siyukatu, night_fox_
+description: しゆかつサーバーのBAN情報を使用してあなたのサーバーに荒らしが参加するのを防ぎます。
+
+commands:
+  ban-database:
+    aliases: [bd]
