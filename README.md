@@ -3,8 +3,10 @@ githubの使い方がわからないのでアップロードしません。<br>
 readme.mdなんで一応使い方だけ書いときます<br>
 <br>
 # このプラグインについて
+3月10日にこのプラグインの新バージョンを公開しました。
+下記のURLからダウンロードして、前のファイルと置き換えてください。
 しゆかつサーバーでBANされてる人があなたのサーバーに入れなくなるやつです<br>
 ちなみに、ホワイトリストに入れとけばその人はあなたのサーバーに入れます<br>
-プラグインのダウンロード: https://siyukatu.com/bandatabase/sykt_bansync-1.0.jar<br>
+プラグインのダウンロード: https://siyukatu.com/bandatabase/siyukatu-bansync-1.1.jar<br>
 ※paperとspigot以外では動作保証がありません<br>
 APIキーを求められるはずなので[マイページ](http://siyukatu.com/mypage/)から引っ張ってきてください
