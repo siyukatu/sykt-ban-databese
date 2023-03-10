@@ -27,7 +27,7 @@ public final class BungeeBans extends Plugin {
         getLogger().info(ChatColor.RED + " * " + ChatColor.RESET + "起動中... (³ω³).｡o");
 
         // モードの設定
-        Bans.mode = ServerMode.Bukkit;
+        Bans.mode = ServerMode.Bungee;
 
         // インスタンス
         instance = this;
