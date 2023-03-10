@@ -1,0 +1,14 @@
+name: siyukatu_ban_database
+version: '${project.version}'
+main: com.siyukatu.bans.BukkitBans
+authors: [ siyukatu, night_fox_ ]
+description: しゆかつサーバーのBAN情報を使用してあなたのサーバーに荒らしが参加するのを防ぎます。
+
+commands:
+  ban-database:
+    description: default commands
+    aliases: [bd]
+
+permissions:
+  com.siyukatu.bans.*:
+    default: op
