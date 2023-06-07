@@ -7,7 +7,7 @@ on:
   release:
     types: [main]
   push:
-    branches: [mastetr]
+    branches: [main]
 
 jobs:
   build:
