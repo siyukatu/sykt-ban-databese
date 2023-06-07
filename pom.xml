@@ -16,6 +16,15 @@
         <java.version>11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+         
+    <distributionManagement>
+        <repository>
+          <id>internal.repo</id>
+          <name>Temporary Staging Repository</name>
+          <url>file://${project.basedir}/../mvn-repo</url>
+        </repository>
+    </distributionManagement>
+
 
     <build>
         <plugins>
