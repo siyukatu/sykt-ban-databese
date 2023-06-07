@@ -30,5 +30,9 @@ debug_level: "info" # デバックレベルです。　"info"から、"debug"に
 ## 動作保証
 現在動作が確認できているものは、Bukkit v1.12.2 以降及びBungeecord v1.12以降です。
 
+## 現在確認済みのバグ
+統合版idでのinfoができない - getUUID() でmojangに強制的に問い合わせしているため。
+統合版のxuidを参照していない (geyserのuuid) - こちら側では対応しかねるためこれはsiyukatu氏に確認する
+
 ## 報告
 プラグインの不具合については、[こちらを](https://github.com/siyukatu/sykt-ban-databese)、ご確認ください。
